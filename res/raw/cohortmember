@@ -1,0 +1,10 @@
+# Resource
+resource.name=Local Member Resource
+node.root=$.results
+resource.object=com.mclinic.search.sample.domain.Member
+algorithm.class=com.mclinic.search.sample.algorithm.MemberAlgorithm
+resolver.class=com.mclinic.search.sample.resolver.MemberCohortResolver
+
+# Searchable Fields
+cohortUuid=$['cohort.uuid']
+patientUuid=$['patient.uuid']

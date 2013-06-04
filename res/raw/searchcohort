@@ -1,0 +1,11 @@
+# Resource configuration
+resource.name=Search Cohort Resource
+node.root=$.results
+resource.object=com.mclinic.search.sample.domain.Cohort
+algorithm.class=com.mclinic.search.sample.algorithm.CohortAlgorithm
+resolver.class=com.mclinic.search.sample.resolver.SearchCohortResolver
+field.unique=uuid
+
+# Searchable Fields
+uuid=$['uuid']
+name=$['name']

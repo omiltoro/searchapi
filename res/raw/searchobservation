@@ -1,0 +1,12 @@
+# Resource configuration
+resource.name=Search Observation Resource
+node.root=$.results
+resource.object=com.mclinic.search.sample.domain.Observation
+algorithm.class=com.mclinic.search.sample.algorithm.ObservationAlgorithm
+resolver.class=com.mclinic.search.sample.resolver.SearchObservationResolver
+field.unique=uuid
+
+# Searchable Fields
+uuid=$['uuid']
+patientUuid=$['person.uuid']
+conceptUuid=$['concept.uuid']

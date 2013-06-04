@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Lab Test</title>
+    <link rel="stylesheet" style="text/css" href="deps/opt/bootstrap.css" />
+  </head>
+  <body>
+    <h1>Sputum Lab Test Form</h1>
+    <form></form>
+    <div id="res" class="alert"></div>
+    <script type="text/javascript" src="deps/jquery.min.js"></script>
+    <script type="text/javascript" src="deps/underscore.js"></script>
+    <script type="text/javascript" src="deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="lib/jsonform.js"></script>
+    <script type="text/javascript">
+      $('form').jsonForm({
+        schema: {
+friends: {
+      type: 'array',
+      maxItems:3,//spot morning spot//
+      items: {
+        type: 'object',
+        title: 'Lab Sputum Test Form',
+        properties: {
+          date: {
+            type: 'string',
+            title: 'Date',
+            required: true
+          },
+
+         sample:{
+          type:'string',
+          title:'Sample time',
+"enum": [ "Spot", "Morning", "Spot" ]
+          },
+
+          
+          serial: {
+            type: 'number',
+            title: 'Label Serial No.'
+          },
+reasons: {
+            type: 'string',
+            title: 'Reason For Treatment',
+            "enum": [ "Dx", "Treatment", "Unknown" ]
+          },
+results: {
+            type: 'string',
+            title: 'Results',
+            "enum": [ "neg", "+", "++","+++" ]
+          },
+appearance: {
+            type: 'string',
+            title: 'Appearance',
+            "enum": [ "Blood stained", "Muco-purulent", "Saliva" ]
+         }}} },"form": [
+    {
+      "key": "language",
+      "type": "radiobuttons",
+      "activeClass": "btn-success"
+    }
+  ]
+
+        },
+        onSubmit: function (errors, values) {
+          if (errors) {
+            $('#res').html('<p>I beg your pardon?</p>');
+          }
+          else {
+            $('#res').html('<p>Hello ' + values.name + '.' +
+              (values.age ? '<br/>You are ' + values.age + '.' : '') +
+              '</p>');
+          }
+        }
+      
+});
+    </script>
+  </body>
+</html>
